@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=bundle_config_schema.json
+bundle:
+  name: dlt-streaming-sp-edg-demo
+
+resources:
+  pipelines:
+    dlt-streaming-sp-edg-demo-pipeline:
+      name: dlt-streaming-sp-edg-demo-pipeline
+      development: true
+      continuous: false
+      channel: "CURRENT"
+      photon: false
+      libraries:
+        - notebook:
+            path: ./3.dlt_kafka_to_bronze.py
+        - notebook:
+            path: ./4.dlt_bronze_to_silver.sql
+        - notebook:
+            path: ./5.dlt_silver_to_gold.sql
+        
+      edition: "ADVANCED"
+      clusters:
+        - label: "default"
+          num_workers: 1
+
+targets:
+  development:
+    workspace:
+      host: https://e2-demo-field-eng.cloud.databricks.com/
+
