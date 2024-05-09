@@ -26,8 +26,8 @@ jobs:
         env:
          DATABRICKS_HOST: ${{secrets.DATABRICKS_HOST}}
          DATABRICKS_TOKEN: ${{secrets.DATABRICKS_TOKEN}}
-         environment: development
-         DATABRICKS_BUNDLE_ENV: development
+         environment: dev
+         DATABRICKS_BUNDLE_ENV: dev
 
   # Validate, deploy, and then run the bundle.
   pipeline_update:
@@ -52,5 +52,5 @@ jobs:
         env:
          DATABRICKS_HOST: ${{secrets.DATABRICKS_HOST}}
          DATABRICKS_TOKEN: ${{secrets.DATABRICKS_TOKEN}}
-         environment: development
-         DATABRICKS_BUNDLE_ENV: development
+         environment: dev
+         DATABRICKS_BUNDLE_ENV: dev
